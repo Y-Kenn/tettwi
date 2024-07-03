@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  apache:
+    container_name: tettwi-app
+    build:
+      context: .
+      dockerfile: ./docker/apache/Dockerfile
+    ports:
+      - 80:80
+    environment:
+      COMPOSER_ALLOW_SUPERUSER: 1
+    volumes:
+      - ./webapp:/var/www/html
+      - ./docker/apache/php.ini:/usr/local/etc/php/php.ini
+    depends_on:
+      - db
+    networks:
+      - net1
+  db:
+    container_name: tettwi-db
+    build:
+      context: .
+      dockerfile: ./docker/db/Dockerfile
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_USER: tettwi
+      MYSQL_PASSWORD: tettwi
+      TZ: 'Asia/Tokyo'
+    networks:
+      - net1
+    ports:
+      - 3306:3306
+networks:
+  net1:

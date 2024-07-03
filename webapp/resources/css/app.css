@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.tweet-list {
+    max-width: 540px !important;
+}
+
+blockquote{
+    box-sizing: border-box;
+    /*border: 1px solid rgb(207, 217, 222);*/
+    border-radius: 0 0 12px 12px;
+    background-color: #fff;
+    padding: 1em 1em 3.5em 1em;
+}
+
+blockquote:before{
+    content: "ツイートが削除されました";
+    display: block;
+    width: 100%;
+    text-align: center;
+    white-space: pre-wrap;
+    line-height: 2em;
+    font-weight: bold;
+    color: #fff;
+    background-color: red;
+    margin-bottom: 1em;
+}
+
+.tweet-widget {
+    width: 100%;
+}
+
+.tweet-widget > * {
+    margin: 0 !important;
+
+}
+
+.collapse{
+    visibility: visible;
+}
+
+.navbar-collapse{
+    flex-grow: 0 !important;
+}
+
+.tweet-footer{
+    position: relative;
+    bottom: 0;
+    border: 1px solid #cfd9de;
+    border-radius: 0 0 12px 12px;
+}
+
+.icon-button{
+    text-shadow: 0 0 1px black;
+}
+
+.ellipsis-button{
+    width: 30px;
+    height: 30px;
+}
+
+.tweet-modal{
+    z-index: 10;
+}
